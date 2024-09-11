@@ -1,0 +1,1 @@
+So far, I've reviewed and learned the basics of data structures and algorithms, such as abstract data types and NP algorithms. I also reviewed key concepts like object oriented programming and inhertiance.
