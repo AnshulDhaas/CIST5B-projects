@@ -4,18 +4,29 @@ def maze_runner(maze):
     
     def is_valid(x, y):
         
+    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        
     def navigate(x, y):
         #base case: if we reach the exit
         if (x, y) == EXIT:
-            maze[x][y] = 2
+            maze[x][y] = 2 #mark the path
             return True
         
         if not is_valid(x, y):
             return False
         
-        for 
-    #recursive case: if the position is valid
+        maze[x][y] = 2 #mark the index
+        
+        for direction in directions:
+            new_x = x + direction[0]
+            new_y = y + direction[1]
+            if navigate(new_x, new_y):
+                maze[x][y] = 2
+                return True
+        maze[x][y] = 0 #if index isn't valid go backwards (we hit a dead end)
+        return False
     
-    #mark the index
+    return navigate(START[0], START[1])
+        
     
-    #if we hit a wall/no path is found, backtrack and change the cell back to 0
+    
