@@ -1,9 +1,10 @@
+
 def maze_runner(maze):
-    START = (0, 0)
-    EXIT = (len(maze) - 1, len(maze[0]) - 1)
+    START = (0, 0) #START
+    EXIT = (len(maze) - 1, len(maze[0]) - 1) #END
     
     def is_valid(x, y):
-        # it's within the maze boundaries and it's not visited or a wall
+        # if x or y is in bounds of the 2D array, the index has a value of 0
         return 0 <= x < len(maze) and 0 <= y < len(maze[0]) and maze[x][y] == 0
         
     def navigate(x, y):
@@ -45,10 +46,35 @@ maze1 = [
     [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
     [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
 ]
-# Expected output: A valid path should be found.
 
-# Run the maze solver
-result = maze_runner(maze1)
+maze2 = [
+    [0, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+]
+
+maze3 = [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+]
+
+maze4 = [
+    [0, 1, 0, 1, 0],
+    [0, 0, 1, 0, 0],
+    [1, 0, 1, 1, 0],
+    [1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0]
+]
+
+maze5 = [
+    [0, 0, 1, 0],
+    [0, 1, 0, 0],
+    [1, 0, 1, 0],
+    [0, 0, 0, 0]
+]
+
+result = maze_runner(maze3)
 if result:
     for row in result:
         print(row)
