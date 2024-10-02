@@ -33,7 +33,7 @@ def maze_runner(maze):
     else:
         return False  # No path found
 
-# Example maze
+# Example mazes/test cases
 maze1 = [
     [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
     [1, 1, 1, 0, 1, 0, 1, 1, 1, 0],
@@ -73,10 +73,18 @@ maze5 = [
     [1, 0, 1, 0],
     [0, 0, 0, 0]
 ]
-
+#Output
 result = maze_runner(maze3)
 if result:
     for row in result:
         print(row)
 else:
     print("No path found")
+    
+'''
+Write up:
+- Beyond this use case, we can use AI to solve mazes using more efficient algorithms, and maybe even make this maze solver more interactive.
+- We can also use AI to make this code more interactive with users, maybe even make a GUI or a game for it.
+- If the user can't solve it, we can use this algorithm to solve it instead and move on to the next level/step of the game.
+
+'''
