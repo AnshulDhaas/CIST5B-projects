@@ -1,0 +1,51 @@
+@startuml
+class Rider {
+    location : Coordinates
+    destination : Coordinates
+    riderID : String
+    requestRide()
+}
+
+class Driver {
+    location : Coordinates
+    availability : Boolean
+    driverID : String
+    rating : Integer
+    vehicleType : String
+    updateLocation()
+    setAvailability()
+}
+
+class RideMatchingSystem {
+    availableDrivers : Queue
+    activeRides : List<Ride>
+    findClosestDriver(riderLocation : Coordinates) : Driver
+    rankDrivers(drivers : List<Driver>) : List<Driver>
+    matchDriverToRider(rider : Rider, driver : Driver) : void
+}
+
+class Graph {
+    nodes : List<Location>
+    edges : List<Edge>
+    calculateShortestPath(start : Location, end : Location) : List<Edge>
+}
+
+class Queue {
+    queue : List<Driver>
+    enqueue(driver : Driver) : void
+    dequeue() : Driver
+}
+
+class HashTable {
+    table : Map<String, Object>
+    insert(key : String, value : Object) : void
+    search(key : String) : Object
+}
+
+RideMatchingSystem "1" -- "*" Ride
+Ride "1" -- "1" Rider
+Ride "1" -- "1" Driver
+RideMatchingSystem "1" -- "*" Queue
+RideMatchingSystem "1" -- "1" Graph
+RideMatchingSystem "1" -- "2" HashTable
+@enduml
