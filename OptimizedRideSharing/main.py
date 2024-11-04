@@ -111,7 +111,7 @@ def main():
             return
         driver_id = driver_listbox.get(selected_driver_idx[0]).split(",")[0].split(":")[1].strip() #get the driver ID
 
-        # Using LinkedList iteration to find the driver
+        #using LinkedList iteration to find the driver
         selected_driver = None
         for driver in drivers.drivers:
             if str(driver.driver_id) == driver_id:
@@ -132,7 +132,7 @@ def main():
     def apply_filters(selected_passenger=None):
         if not selected_passenger:
             selected_passenger_id = passenger_var.get()
-            selected_passenger = passengers.search_passenger(selected_passenger_id)  # Method to find by ID
+            selected_passenger = passengers.search_passenger(selected_passenger_id)  #search for the selected passenger by id
             if selected_passenger is None:
                 print("No valid passenger selected for filtering.")
                 return

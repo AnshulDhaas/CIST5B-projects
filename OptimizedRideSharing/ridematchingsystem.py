@@ -100,17 +100,14 @@ def main():
     g = Graph()
     system = RideMatchingSystem(g)
 
-    # Adding passengers and drivers as nodes with coordinates
     
     system.add_passenger(Passenger('Passenger1', (0, 0), (1, 1), 2, 1))
     system.add_driver(Driver('Driver1', (2, 2), 4.8, 4))
     system.add_driver(Driver('Driver2', (1, 1), 4.5, 4))
     
-    # Adding edges between nodes for graph connectivity
     g.add_edge('Passenger1', 'Driver1')
     g.add_edge('Passenger1', 'Driver2')
 
-    # Finding the closest driver for Passenger1
     closest_driver, distance = system.find_closest_driver('Passenger1')
     print(f"Closest driver to Passenger1: {closest_driver.driver_id}")
     print(f"Distance: {distance}")
