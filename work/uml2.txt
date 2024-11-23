@@ -1,0 +1,73 @@
+@startuml
+class Rider {
+    +String rider_id
+    +tuple location
+    +tuple destination
+    +distance() : float
+}
+
+class Passenger {
+    +int luggage
+    +Linkedlist best_drivers
+    +Passenger(passenger_id, location, destination, luggage, people)
+    +driver_distance(driver) : float
+    +merge_sort_drivers(drivers)
+    +merge(left, right)
+    +rank_drivers(drivers)
+    +display_drivers()
+}
+
+class Passengers {
+    +Linkedlist passengers
+    +HashTable passengers_hash
+    +add_passenger(passenger)
+    +remove_passenger(passenger)
+    +search_passenger(passenger_id)
+    +get_all_passengers() : list
+}
+
+class Driver {
+    +float rating
+    +float weight_capacity
+    +Driver(driver_id, location, rating, weight_capacity)
+    +update_location(new_location)
+    +set_availability(available)
+}
+
+class Drivers {
+    +Linkedlist drivers
+    +add_driver(driver)
+    +remove_driver(driver)
+    +sort_drivers()
+    +search_driver(driver_id)
+    +get_all_drivers() : list
+}
+
+class Graph {
+    +defaultdict graph
+    +dict coordinates
+    +add_node(node, x, y)
+    +add_edge(start, end)
+    +calculate_distance(node1, node2) : float
+    +calculate_shortest_path(start, end) : tuple
+}
+
+class RideMatchingSystem {
+    +Graph graph
+    +HashTable passenger_locations
+    +HashTable available_drivers
+    +HashTable driver_distances
+    +RideMatchingSystem(graph)
+    +add_passenger(passenger)
+    +add_driver(driver)
+    +find_closest_driver(passenger_id) : tuple
+}
+
+Rider <|-- Passenger
+Rider <|-- Driver
+
+Passengers --> Passenger : aggregation >
+Drivers --> Driver : aggregation >
+Graph --> Rider : association >
+RideMatchingSystem --> Graph : uses >
+@enduml
